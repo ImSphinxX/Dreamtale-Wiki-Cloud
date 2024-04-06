@@ -20,11 +20,9 @@ body {
 }
 
 .top {
-    width: 105%;
     min-width: 105%;
-    height: 3000px;
-    min-height: 3000px;
-    background-size: 100% 100%;
+    width: 105%;
+    height: auto;
     margin-left: 90px;
     margin-bottom: 100px;
     background-color: red;
