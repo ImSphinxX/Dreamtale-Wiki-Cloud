@@ -26,8 +26,8 @@ body {
     margin-left: 90px;
     margin-bottom: 100px;
     background-color: red;
-    /*background-image: url('Monster.gif');*/
-    animation: moving 180s infinite;
+    /*background-image: url('Monster.gif');
+    animation: moving 180s infinite;*/
 }
 @keyframes moving {
     0% 100% {
