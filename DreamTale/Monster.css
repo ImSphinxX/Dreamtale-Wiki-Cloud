@@ -25,10 +25,6 @@ body {
     height: 3000px;
     min-height: 3000px;
     background-size: 100% 100%;
-    position: block;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
     margin-left: 90px;
     margin-bottom: 100px;
     background-color: red;
