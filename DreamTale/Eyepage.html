@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Animated Eyes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            --bg: black;
+            --fg: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+            margin: 0px;
+        }
+
+        .eye-image {
+            width: 118px; /* Imposta la larghezza dell'immagine al 100% */
+            height: 118px; /* Imposta l'altezza dell'immagine in base all'aspetto */
+            margin: 0px;
+        } /*dimensioni*/
+
+        .eye-object {
+            position: absolute;
+            color: white;
+            min-width: 100px;
+            min-height: 100px; /* Imposta l'altezza minima uguale alla larghezza minima */
+            z-index: -1;
+            padding: 0px;
+            margin: 0px;
+        }/*sovrapponi*/
+
+        .eye {
+            margin: 0;
+            padding-left: 8px;
+            padding-top: 5px;
+        }
+
+        .Occhio {
+            float: left;
+            position: relative;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pupil {
+            z-index: 3;
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0px;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="grid">
+        <div class="Occhio">
+            <div class="eye-object">
+                <svg width="100" height="100" class="eye">
+                    <circle cx="50" cy="50" r="50" fill="white" class="eyeball" />
+                    <circle cx="50" cy="50" r="20" fill="black" class="pupil"></circle>
+                </svg>
+            </div>
+            <img src="eye2.png" class="eye-image"/>
+        </div>
+    </div>
+
+    <script>
+        //-------------------------------------|Larghezza occhi|------------------------------------
+
+        const eyeImage = document.querySelector('.eye-image');
+
+        // Ottieni la larghezza dell'immagine
+        const eyeImageWidth = eyeImage.offsetWidth;
+        const eyeImageHeight = eyeImage.offsetHeight;
+
+        document.documentElement.style.setProperty('--eye-width', `${eyeImageWidth}px`);
+        document.documentElement.style.setProperty('--eye-Height', `${eyeImageHeight}px`);
+
+
+        //-------------------------------------|Moltiplica occhi|------------------------------------
+
+        // Ottieni il div di classe "Occhio"
+        const eyeDiv = document.querySelector('.Occhio');
+
+        // Numero di volte da moltiplicare il div "Occhio"
+        const volte = 1247; // Cambia questo valore con il numero desiderato di volte
+
+        // Clona il div "Occhio" e inseriscilo nel documento il numero di volte specificato
+        for (let i = 0; i < volte; i++) {
+            const clonedEyeDiv = eyeDiv.cloneNode(true); // true per clonare anche tutti gli elementi interni
+            document.getElementById('grid').appendChild(clonedEyeDiv); // Aggiungi il clone al documento
+        }
+
+
+        //-------------------------------------|Movimento occhi|------------------------------------
+
+        let eyeBalls = document.querySelectorAll(".eyeball"),
+            pupils = document.querySelectorAll(".pupil"),
+            eyeAreas = document.querySelectorAll(".eye"),
+            numEyes = eyeBalls.length;
+
+        //tutti gli occhi
+        for (let i = 0; i < numEyes; i++) {
+            let eyeBall = eyeBalls[i],
+                pupil = pupils[i],
+                eyeArea = eyeAreas[i],
+                eyeRect = eyeArea.getBoundingClientRect(),
+                pupilRect = pupil.getBoundingClientRect(),
+                R = eyeRect.width / 2,
+                r = pupilRect.width / 2,
+                centerX = eyeRect.left + R,
+                centerY = eyeRect.top + R;
+
+            document.addEventListener("mousemove", (e) => {
+                let x = e.clientX - centerX,
+                    y = e.clientY - centerY,
+                    theta = Math.atan2(y, x),
+                    angle = theta * 180 / Math.PI + 360;
+
+                pupil.style.transform = `translateX(${R - r + "px"}) rotate(${angle + "deg"})`;
+                pupil.style.transformOrigin = `${r + "px"} center`;
+            });
+        }
+    </script>
+</body>
+</html>

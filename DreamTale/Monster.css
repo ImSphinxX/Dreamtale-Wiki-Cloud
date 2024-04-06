@@ -1,0 +1,149 @@
+:root {
+    --card-height: 300px;
+    --card-width: calc(var(--card-height)/1.5)
+}
+
+body {
+    width: 100vw;
+    height: 70vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    background-repeat: no-repeat;
+    background-size: auto 210%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    max-width: 1400px;
+    padding: 200px 10px;
+}
+
+.top {
+    width: 105%;
+    min-width: 105%;
+    height: 3000px;
+    min-height: 3000px;
+    background-size: 100% 100%;
+    position: block;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 90px;
+    margin-bottom: calc(var(--card-height) * 2);
+    background-color: red;
+    background-image: url('Monster.gif');
+    animation: moving 180s infinite;
+}
+@keyframes moving {
+    0% 100% {
+        background-image: url('Monster.gif');
+    }
+    32% {
+        background-image: url('Monster.gif');
+    }
+    33% {
+        background-image: url('Monster2.gif');
+    }
+    65% {
+        background-image: url('Monster2.gif');
+    }
+    66% {
+        background-image: url('Monster3.gif');
+    }
+    99% {
+        background-image: url('Monster3.gif');
+    }
+}
+
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 36px;
+    perspective: 2500px;
+    margin: 150px 50px;
+    cursor: pointer;
+}
+
+.cover-image {
+    width: 100%;
+    height: 58vh;
+    object-fit: cover;
+}
+
+.wrapper {
+    transition: all 0.5s;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.wrapper::before,
+.wrapper::after {
+    content: '';
+    opacity: 0;
+    width: 100%;
+    height: 80px;
+    transition: all 0.5s;
+    position: absolute;
+    left: 0;
+}
+
+.wrapper::before {
+    top: 0;
+    height: 100%;
+    background-image: linear-gradient(to top, transparent 46%, rgb(12,13,19,0.5) 68%, rgb(12,13,19) 97%);
+}
+
+.wrapper::after {
+    bottom: 0;
+    opacity: 0;
+    background-image: linear-gradient(to top, transparent 46%, rgb(12,13,19,0.5) 68%, rgb(12,13,19) 97%);
+}
+
+.title {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.character {
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+.card:hover .wrapper {
+    transform: perspective(900px) translate(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 0px 35px 32px -8px rgb(0, 0, 0, 0.75);
+}
+
+.card:hover .title {
+    transform: translate3d(0%, -50%, 100px);
+}
+
+.card:hover .wrapper::after, .wrapper::before {
+    opacity: 1;
+}
+
+.card:hover .wrapper::after {
+    height: 120px;
+}
+
+.card:hover .wrapper::before {
+    opacity: 1;
+}
+
+.card:hover .character {
+    opacity: 1;
+    transform: translate3d(0%, -30%, -100px);
+}
+
+/*------------------------------------------------------------------------*/
+

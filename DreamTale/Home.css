@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .title {
+    filter:blur(100px);
+    font-size: 200px;
+    animation: titolo 7s ease;
+    -webkit-animation-fill-mode: forwards;
+  }
+  @keyframes titolo {
+    100% {
+        filter:blur(1px);
+        font-size: 50px;
+    }
+  }
+  header {
+    height: 100vh;
+    background-image: url(bridge.jpg);
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    animation: godown 60s infinite;
+  }
+  @keyframes godown {
+    50% {
+      background-position: -100%
+    }
+  }
+  .wave {
+    filter:blur(2px)
+  }
+  #shape {
+    position: absolute;
+    left: 0;
+    bottom: -19vw;
+  }
+  img:not(#shape) {
+    position: absolute;
+    left: 0;
+  }
+  
+  header img:nth-child(1) {
+    opacity: 0.4;
+    bottom: -2vw;
+    width: 100%;
+    animation: move-1 5s infinite;
+  }
+  @keyframes move-1 {
+    50% {
+      transform: translateY(15px);
+    }
+  }
+  header img:nth-child(2) {
+    opacity: 0.3;
+    bottom: 1.7vw;
+    animation: move-2 4s infinite;
+  }
+  @keyframes move-2 {
+    50% {
+      transform: translateY(35px);
+    }
+  }
+  header img:nth-child(3) {
+    bottom: 1.5vw;
+    opacity: 0.2;
+    animation: move-3 3.5s infinite;
+  }
+  @keyframes move-3 {
+    50% {
+      transform: translateY(25px);
+    }
+  }
+  header img:nth-child(4) {
+    bottom: 1.3vw;
+    opacity: 0.3;
+    animation: move-4 3s infinite;
+  }
+  @keyframes move-4 {
+    50% {
+      transform: translateY(20px);
+    }
+  }
+  header h1 {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    font-size: 8vmin;
+    text-align: center;
+    color: #ffffff;
+  }
+  section p {
+    font-family: "Poppins", sans-serif;
+    padding: 30px 35px;
+    margin-top: 50px;
+    text-align: justify;
+    line-height: 2em;
+    letter-spacing: 0.5px;
+    width: 1000px;
+  }
