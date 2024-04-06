@@ -1,0 +1,164 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    h1 {
+      text-align: center;
+    }
+    #dropdown {
+      display: flex;
+      $width: 224px; //These aren't CSS variables because the wheel images require this size
+      $height: 48px;
+      --border-radius: 0.35rem;
+      --frame: gray;
+      --border-thickness: 2px;
+      background: var(--frame);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition:.25s -.1s;
+      &.shake {
+        --frame: red;
+        animation: shake 0.5s;
+      }
+      @keyframes shake {
+        10% {
+          transform: translateX(0.5rem);
+        }
+        25% {
+          transform: translateX(-0.4rem);
+        }
+        40% {
+          transform: translateX(0.3rem);
+        }
+        65% {
+          transform: translateX(-0.2rem);
+        }
+        80% {
+          transform: translateX(0.1rem);
+        }
+        100% {
+          transform: translateX(0rem);
+        }
+      }
+      &:hover {
+        --frame: #717272;
+      }
+      &.valid {
+        --frame: #a0d468;
+        &:hover {
+          --frame: #8cc152;
+        }
+      }
+      .tag {
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        position: relative;
+        width: $height / 1.5;
+        background: var(--frame);
+        transition: background 0.25s -.1s;
+        .arrow {
+          //position: absolute;
+          border: 0.5rem solid transparent;
+          border-top-color: white;
+          border-width: 0.8rem 0.4rem 0 0.4rem;
+          transform: translateY(0.1rem);
+        }
+        &.disabled {
+          cursor: wait;
+          .arrow {
+            opacity: 0.25;
+          }
+        }
+      }
+      .dropdown {
+        display: flex;
+        width: $width;
+        height: $height;
+        border: 2px solid var(--frame);
+        transition: border-color 0.25s -.1s;
+        border-radius: calc(var(--border-radius) - var(--border-thickness));
+        overflow: hidden;
+        pointer-events: none;
+        .gap {
+          position: relative;
+          width: 0px;
+          transition: 0.05s;
+        }
+        .wheel {
+          flex-grow: 20;
+          flex-basis: 0;
+          overflow: hidden;
+          border-radius: 0;
+          transition: 0.25s;
+          background: url(https://i.koya.io/codepen-dropdown.svg) white;
+            //I disagree about this being cheating. The wheels spinning just move the background image which wraps.
+            //You can zoom into the page and it's still crisp due to it being an SVG
+          .container {
+            position: relative;
+            width: $width;
+            user-select: none;
+            > div {
+              display: grid;
+              place-items: center;
+              height: $height;
+              width: 100%;
+              font-size: 2rem;
+              letter-spacing: 0.2rem;
+            }
+          }
+          $spin-easing: cubic-bezier(0.3, 0, 0.1, 1);
+          &.wheel1 {
+            border-radius: 
+              calc(var(--border-radius) - var(--border-thickness))
+              0
+              0
+              calc(var(--border-radius) - var(--border-thickness));
+            transition:
+              background-position 3s $spin-easing,
+              0.25s border-radius;
+          }
+          &.wheel2 {
+            background-position-x: $width / -3;
+            transition:
+              background-position 4s $spin-easing,
+              0.25s border-radius,
+              0.25s box-shadow;
+          }
+          &.wheel3 {
+            background-position-x: $width / -1.5;
+            border-radius:
+              0
+              calc(var(--border-radius) - var(--border-thickness))
+              calc(var(--border-radius) - var(--border-thickness))
+              0;
+            transition:
+              background-position 5s $spin-easing,
+              0.25s border-radius;
+          }
+        }
+        &.show-gap {
+          .wheel {
+            border-radius: calc(var(--border-radius) - var(--border-thickness));
+            &.wheel1 {
+              box-shadow: inset -1px 0 var(--frame);
+            }
+            &.wheel2 {
+              box-shadow: inset 1px 0 var(--frame), inset -1px 0 var(--frame);
+              .container {
+                left: ($width / -3) - 0.33px;
+              }
+            }
+            &.wheel3 {
+              box-shadow: inset 1px 0 var(--frame);
+              .container {
+                left: ($width / -1.5) - 0.66px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
