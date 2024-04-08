@@ -36,7 +36,7 @@
     left: 0;
     bottom: -19vw;
   }
-  img:not(#shape) {
+  img:not(#shape, .image){
     position: absolute;
     left: 0;
   }
@@ -82,7 +82,7 @@
       transform: translateY(20px);
     }
   }
-  header h1 {
+  header h1{
     width: 100%;
     font-family: "Poppins", sans-serif;
     position: absolute;
@@ -93,12 +93,31 @@
     text-align: center;
     color: #ffffff;
   }
-  section p {
+  section p :not(.areatesto) :not(.testo) :not(.image){
     font-family: "Poppins", sans-serif;
     padding: 30px 35px;
     margin-top: 50px;
     text-align: justify;
     line-height: 2em;
     letter-spacing: 0.5px;
-    width: 1000px;
+    width: 100%;
+  }
+
+  .testo {
+    background-color: red;
+    margin: 0px;
+    width: 100%;
+    font-family: 'Original Surfer', cursive; 
+    font-size: 18px; 
+    line-height: 28px; 
+  }
+  
+  .areatesto {
+    display: flex;
+    background-color: blue;
+    margin-top: 15px;
+  }
+  
+  .image {
+    width: 20%;
   }

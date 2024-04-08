@@ -9,8 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
-    background-repeat: no-repeat;
+    background: black no-repeat;
     background-size: auto 210%;
     flex-direction: row;
     flex-wrap: wrap;
@@ -20,16 +19,21 @@ body {
 }
 
 .top {
-    width: 105%;
+    
+    width: 98.25%;
+    min-height: 100px;
     height: auto;
-    margin-left: 90px;
-    margin-bottom: 100px;
     background-color: red;
+    border: 5px solid red;
+    margin-left: -270px !important;
+    margin-top: -420px !important;
     background-image: url('Monster.gif');
     animation: moving 180s infinite;
+    position: absolute;
 }
+
 @keyframes moving {
-    0% 100% {
+    0%, 100% {
         background-image: url('Monster.gif');
     }
     32% {
@@ -47,6 +51,33 @@ body {
     99% {
         background-image: url('Monster3.gif');
     }
+}
+
+.linehead {
+    width: 107%;
+    min-width: 107%;
+    height: auto;
+    background-image: url('Monster.gif') no-repeat;
+    background-size: contain;
+    object-fit: cover;
+    margin-left: 7%;
+    border: 5px solid red;
+    display: flex;
+    margin-bottom: 10%;
+}
+
+.linecard {
+    width: 90%;
+    min-width: 90%;
+    height: 150px;
+    min-height: 150px;
+    margin-left: 8%;
+    margin-top: 300px;
+    margin-bottom: 100px;
+    border: 5px solid red;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
 }
 
 .card {
