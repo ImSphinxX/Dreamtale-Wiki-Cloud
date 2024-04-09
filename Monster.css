@@ -27,43 +27,43 @@ body {
     border: 5px solid red;
     margin-left: -270px !important;
     margin-top: -420px !important;
-    background-image: url('Monster.gif');
-    animation: moving 180s infinite;
     position: absolute;
 }
 
-@keyframes moving {
-    0%, 100% {
-        background-image: url('Monster.gif');
-    }
-    32% {
-        background-image: url('Monster.gif');
-    }
-    33% {
-        background-image: url('Monster2.gif');
-    }
-    65% {
-        background-image: url('Monster2.gif');
-    }
-    66% {
-        background-image: url('Monster3.gif');
-    }
-    99% {
-        background-image: url('Monster3.gif');
-    }
+.linehead {
+    width: 109%;
+    min-width: 109%;
+    height: 2560px;
+    min-height: 2000px;
+    margin-left: 6%;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
 }
 
-.linehead {
-    width: 107%;
-    min-width: 107%;
-    height: auto;
-    background-image: url('Monster.gif') no-repeat;
-    background-size: contain;
-    object-fit: cover;
-    margin-left: 7%;
-    border: 5px solid red;
-    display: flex;
-    margin-bottom: 10%;
+.Shadow-Guy {
+    animation: GrowingShadow 180s infinite;
+}   @keyframes GrowingShadow {
+    0%, 100% {
+        content:url('Monster.gif');
+    }
+    32% {
+        content:url('Monster.gif');
+    }
+    33% {
+        content:url('Monster2.gif');
+    }
+    65% {
+        content:url('Monster2.gif');
+    }
+    66% {
+        content:url('Monster3.gif');
+    }
+    99% {
+        content:url('Monster3.gif');
+    }
 }
 
 .linecard {
@@ -74,7 +74,6 @@ body {
     margin-left: 8%;
     margin-top: 300px;
     margin-bottom: 100px;
-    border: 5px solid red;
     display: flex;
     justify-content: center;
     gap: 10%;
