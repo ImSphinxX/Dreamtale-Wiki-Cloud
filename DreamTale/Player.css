@@ -1,0 +1,20 @@
+body {
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black no-repeat;
+    background-size: auto 210%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    max-width: 1400px;
+    padding: 200px 10px;
+}
+
+h1 {
+    Color: white;
+    margin-top: 7%;
+    margin-left: 5%;
+}

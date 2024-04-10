@@ -47,22 +47,22 @@ body {
     animation: GrowingShadow 180s infinite;
 }   @keyframes GrowingShadow {
     0%, 100% {
-        content:url('Monster.gif');
+        content:url('MonsterImage/Monster1.gif');
     }
     32% {
-        content:url('Monster.gif');
+        content:url('MonsterImage/Monster1.gif');
     }
     33% {
-        content:url('Monster2.gif');
+        content:url('MonsterImage/Monster2.gif');
     }
     65% {
-        content:url('Monster2.gif');
+        content:url('MonsterImage/Monster2.gif');
     }
     66% {
-        content:url('Monster3.gif');
+        content:url('MonsterImage/Monster3.gif');
     }
     99% {
-        content:url('Monster3.gif');
+        content:url('MonsterImage/Monster3.gif');
     }
 }
 
