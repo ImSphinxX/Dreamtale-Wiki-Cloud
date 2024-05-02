@@ -1,0 +1,71 @@
+.pergamene-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 550px;
+    margin-top: 7%;
+    width: 100%;
+    background-color: red;
+}
+  
+.pergamene {
+    display: flex;
+    position: relative;
+    background-color: blue;
+    height: 550px;
+    width: 400px;
+    z-index: 1;
+}
+  
+.pergamena {
+    height: 550px;
+    width: 360px;
+    margin-right: -403px; /* Valore negativo per sovrapporre */
+    background-color: rgba(0, 255, 0, 0.5);
+    border: 2px solid brown;
+    padding: 20px;
+    transition: transform 0.5s ease;
+    position: relative;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(11);
+    animation-fill-mode: forwards;
+}
+
+.default.open {
+  animation-name: open;
+}
+
+.default.close {
+  animation-name: close;
+}
+
+@keyframes open
+{
+  from
+  {
+    background-position: 0;
+  }
+  to
+  {
+    background-position: -10361px;
+  }
+}
+
+
+@keyframes close
+{
+  from
+  {
+    background-position: -10361px;
+  }
+  to
+  {
+    background-position: 0;
+  }
+}
+  
+  .pergamena img {
+    height: auto;
+  }

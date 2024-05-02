@@ -29,12 +29,13 @@
     }
   }
   .wave {
-    filter:blur(2px)
+    filter:blur(8px)
   }
   #shape {
     position: absolute;
     left: 0;
     bottom: -19vw;
+    opacity: 1;
   }
   img:not(#shape, .image){
     position: absolute;
@@ -53,7 +54,7 @@
     }
   }
   header img:nth-child(2) {
-    opacity: 0.3;
+    opacity: 0.4;
     bottom: 1.7vw;
     animation: move-2 4s infinite;
   }
@@ -64,7 +65,7 @@
   }
   header img:nth-child(3) {
     bottom: 1.5vw;
-    opacity: 0.2;
+    opacity: 0.3;
     animation: move-3 3.5s infinite;
   }
   @keyframes move-3 {

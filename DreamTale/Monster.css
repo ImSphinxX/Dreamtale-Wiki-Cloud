@@ -170,3 +170,42 @@ body {
 
 /*------------------------------------------------------------------------*/
 
+.testo {
+    margin: 8%;
+    margin-left: 8%;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    width: 92%;
+    font-family: 'Original Surfer', cursive; 
+    font-size: calc(1vh + 12px); /* Usiamo calc per fare un calcolo basato sulla viewport height */
+    line-height: calc(4vh + 12px); /* Puoi regolare questo valore a tuo piacimento */
+    color: rgb(227, 227, 227);
+    background-color: rgb(17, 17, 17);
+    padding: 13px;
+    border-radius: 20px;
+    border: dashed 4px white;
+}
+  
+  .areatesto {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    justify-content: center, left;
+  }
+
+  section {
+    margin: 0px;
+    width: 98%;
+    font-size: calc(1vh + 14px); /* Usiamo calc per fare un calcolo basato sulla viewport height */;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-family: 'sans sarif';
+    position: center;
+  }
+
+  a {
+    font-weight: bold;
+    font-family: Garamond, serif;
+    font-size: calc(3vh + 12px);
+    color: white;
+  }
