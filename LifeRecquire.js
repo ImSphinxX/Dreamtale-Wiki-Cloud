@@ -1,7 +1,7 @@
 window.onload = function () {
 
-    //document.getElementById('data').innerHTML = 'Corpo';
-    //document.getElementById('descrizione').innerHTML = getDescrizione('Corpo');
+    document.getElementById('data').innerHTML = 'Corpo';
+    document.getElementById('descrizione').innerHTML = getDescrizione('Corpo');
 
     const pieces = document.getElementsByTagName('svg');
     for (var i = 0; i < pieces.length; i++) {
